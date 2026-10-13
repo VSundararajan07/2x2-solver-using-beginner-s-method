@@ -270,7 +270,7 @@ class Solver:
         return sum(cube.at(p, "U") == self.top for p in TOP)
 
     def orient_last_layer(self):
-        self.apply_cases("Orient last layer", (SUNE, ANTISUNE),
+        self.apply_cases("Orient last layer", (SUNE,),
                          lambda cube: self.oriented(cube) == 4)
 
     # ---- stage 3: permute the last layer ----------------------------------
@@ -284,7 +284,7 @@ class Solver:
         return n
 
     def permute_last_layer(self):
-        self.apply_cases("Permute last layer", (ADJ_SWAP, DIAG_SWAP),
+        self.apply_cases("Permute last layer", (ADJ_SWAP,),
                          lambda cube: self.headlights(cube) == 4)
 
     # ---- stage 4: final alignment -----------------------------------------
