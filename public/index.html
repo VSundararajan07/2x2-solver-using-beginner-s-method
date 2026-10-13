@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10131d">
+  <title>2×2 Cube Solver — Beginner Method</title>
+  <link rel="stylesheet" href="/style.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.169.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.169.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-icon">▦</span> CUBE<span class="accent">LAB</span></a>
+    <span class="top-tag">2×2×2 · BEGINNER METHOD</span>
+  </header>
+  <main class="layout">
+    <section class="intro">
+      <div class="eyebrow"><span class="dot"></span> INTERACTIVE SOLVER</div>
+      <h1>Solve your <span>2×2 cube.</span></h1>
+      <p class="subheading">Enter the colours on your cube, generate a beginner-method solution, then follow every move in 3D.</p>
+    </section>
+
+    <section class="workspace">
+      <div class="panel input-panel">
+        <div class="panel-heading">
+          <div><div class="section-kicker">01 / INPUT</div><h2>Cube colours</h2></div>
+          <button id="resetBtn" class="quiet-button" type="button">Reset solved</button>
+        </div>
+        <p class="hint">Hold the cube with U on top and F facing you. Each face is viewed straight-on. Choose one colour for each sticker.</p>
+        <div id="faces" class="faces-grid"></div>
+        <div class="color-key">
+          <span><i class="swatch white"></i>W · White</span><span><i class="swatch yellow"></i>Y · Yellow</span>
+          <span><i class="swatch green"></i>G · Green</span><span><i class="swatch blue"></i>B · Blue</span>
+          <span><i class="swatch orange"></i>O · Orange</span><span><i class="swatch red"></i>R · Red</span>
+        </div>
+        <button id="solveBtn" class="primary-button" type="button"><span>✦</span> Find solution <span class="button-arrow">→</span></button>
+        <p id="status" class="status" role="status">Ready when you are.</p>
+      </div>
+
+      <div class="panel viewer-panel">
+        <div class="panel-heading">
+          <div><div class="section-kicker">02 / PLAYBACK</div><h2>3D cube</h2></div>
+          <span id="stepBadge" class="step-badge">START</span>
+        </div>
+        <div class="canvas-wrap" id="canvasWrap">
+          <div class="canvas-help"><span>↻</span> Drag to rotate · Scroll to zoom</div>
+          <div id="cubeCanvas" aria-label="Interactive 3D Rubik's Cube"></div>
+          <div id="canvasEmpty" class="canvas-empty">Your cube preview<br>will appear here.</div>
+        </div>
+        <div class="move-readout">
+          <div><span class="muted-label">CURRENT MOVE</span><strong id="currentMove">—</strong></div>
+          <div class="stage-readout"><span class="muted-label">METHOD STAGE</span><strong id="currentStage">Waiting for cube</strong></div>
+        </div>
+        <div class="playback">
+          <div class="control-row">
+            <button class="control-button" id="startBtn" title="Go to start" aria-label="Go to start">|◀</button>
+            <button class="control-button" id="prevBtn" title="Previous move" aria-label="Previous move">◀</button>
+            <button class="play-button" id="playBtn" title="Play solution">▶ <span>Play</span></button>
+            <button class="control-button" id="nextBtn" title="Next move" aria-label="Next move">▶</button>
+            <button class="control-button" id="endBtn" title="Go to end" aria-label="Go to end">▶|</button>
+          </div>
+          <div class="slider-row"><label for="stepSlider">STEP</label><input id="stepSlider" type="range" min="0" max="0" value="0"><span id="stepCount">0 / 0</span></div>
+          <div class="slider-row speed-row"><label for="speedSlider">SPEED</label><input id="speedSlider" type="range" min="250" max="1600" step="50" value="800"><span id="speedValue">1.0×</span></div>
+        </div>
+        <div class="stage-list" id="stageList"><div class="empty-stage">Your solution stages will appear here.</div></div>
+      </div>
+    </section>
+    <footer><span>Built for learning, one turn at a time.</span><span>Drag the cube to inspect any side.</span></footer>
+  </main>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
