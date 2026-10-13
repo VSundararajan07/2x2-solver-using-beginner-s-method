@@ -21,9 +21,7 @@ import random
 # ----------------------------------------------------------------------------
 SEXY = "R U R' U'"                                    # first-layer corner insert
 SUNE = "R U R' U R U2 R'"                             # orientation
-ANTISUNE = "R U2 R' U' R U' R'"                       # orientation
 ADJ_SWAP = "R U R' U' R' F R2 U' R' U' R U R' F'"     # permutation (T-perm)
-DIAG_SWAP = "F R U' R' U' R U R' F' R U R' U' R' F R F'"  # permutation (Y-perm)
 
 # ----------------------------------------------------------------------------
 # Cube model: 24 stickers, each at (corner position, face normal)
