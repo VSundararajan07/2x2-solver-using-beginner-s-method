@@ -84,8 +84,11 @@ function faceNormal(face) {
 }
 function init3D() {
   scene = new THREE.Scene();
-  camera = new THREE.PerspectiveCamera(34,1,0.1,100);
-  camera.position.set(4.2,3.1,5.2);
+  
+  camera = new THREE.PerspectiveCamera(34, 1, 0.1, 100);
+  camera.position.set(4.2, 3.1, 5.2);
+  camera.lookAt(0, 0, 0);
+
   renderer = new THREE.WebGLRenderer({antialias:true,alpha:true});
   renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
   renderer.setSize(els.cubeCanvas.clientWidth||500,els.cubeCanvas.clientHeight||350);
