@@ -41,11 +41,22 @@ function buildInputs() {
   }
   refreshSelectColors();
 }
-function updateSelectColor(event) {
-  const select=event.currentTarget; select.style.background=COLORS[select.value].css;
-  select.style.color=select.value==='W'?'#222':'#171528';
+
+function updateSelectColor(target) {
+  const select = target.currentTarget || target;
+  const color = COLORS[select.value];
+
+  if (!color) return;
+
+  select.style.background = color.css;
+  select.style.color = select.value === 'W' ? '#222' : '#171528';
 }
-function refreshSelectColors(){els.faces.querySelectorAll('select').forEach(updateSelectColor);}
+
+function refreshSelectColors() {
+  els.faces.querySelectorAll('select').forEach(select => {
+    updateSelectColor(select);
+  });
+}
 function readFaces() {
   const faces={};
   for (const face of FACE_ORDER) {
