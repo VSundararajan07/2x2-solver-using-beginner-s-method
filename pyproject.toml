@@ -1,2 +1,8 @@
+[project]
+name = "2x2-solver"
+version = "1.0.0"
+requires-python = ">=3.10"
+dependencies = []
+
 [tool.vercel]
 entrypoint = "api.solve:handler"
