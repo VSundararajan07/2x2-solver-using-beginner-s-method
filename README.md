@@ -1,4 +1,4 @@
-# 2×2 Cube Solver — Vercel Web App
+# 2×2 Cube Solver
 
 A browser-based version of the Python 2×2 beginner-method solver. The solver logic in `cube2x2_solver.py` is reused; the Matplotlib desktop viewer is replaced by a Three.js web viewer.
 
